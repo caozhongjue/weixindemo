@@ -1,0 +1,46 @@
+<!--主盒子-->
+<view class="container">
+  <!-- 左侧栏 -->
+  <view class='nav_left'>
+    <view class="nav_left_items {{curNav == 1 ? 'active' : ''}}" 
+          bindtap="switchRightTab"  data-id="1">查天气
+    </view>
+    <view class="nav_left_items {{curNav == 2 ? 'active' : ''}}" bindtap="switchRightTab"  data-id="2">
+      查快递
+    </view>
+  </view>
+
+  <!--右侧栏-->
+  <view class="nav_right">
+    <view class="nav_right_items " wx:if="{{curNav==1}}">
+      <!--HE1908222120511474  天气appid	84e08f5287154eeaabfd3cae69c185a2-->
+      <!--快递 appid  cc712b428dc4cec4c3eb2b08b10ff89b-->
+      <picker mode="region" bindchange="bindChangeWeather">
+        <view>
+          {{region}}
+        </view>
+      </picker>
+      <view class="img">
+         <image class="img-img" src="/images/101.png"></image>
+      </view>
+      <view style="display:flex;flex-direction:row">
+         <view>实况天气 {{now.cond_txt}} |  </view>
+         <view>大气压强 {{now.pres}}   </view>
+      </view>
+      <view style="display:flex;flex-direction:row">
+         <view>温度 {{now.tmp}}  | </view>
+         <view>风向360角度 {{now.wind_deg}}   </view>
+      </view>
+      <view style="display:flex;flex-direction:row">
+         <view>体感温度 {{now.fl}}|</view>
+         <view>风向 {{now.wind_dir}}  </view>
+      </view>
+    </view>
+    <view class="nav_right_items" wx:if="{{curNav==2}}">
+      <view><input class="inp" placeholder="请输入" auto-focus/></view>
+      <view><button class="btn" type="primary" >查询</button></view>
+    </view>
+  </view>
+</view>
+
+

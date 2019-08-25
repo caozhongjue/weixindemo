@@ -1,0 +1,13 @@
+<!--pages/detail/detail.wxml-->
+
+<view class="container">
+  <view class="title">
+    <text>{{title}}</text>
+  </view>
+  <view class="desc">
+    <!-- 这一块是富文本 显示的内容区 -->
+    <wemark md="{{md}}" link highlight="true" type="wemark"></wemark>
+  </view>
+  
+</view>
+

@@ -1,0 +1,23 @@
+/* pages/detail/detail.wxss */
+
+/*整个大容器*/
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  width: 100%;
+}
+.title{
+  font-size: 16px;
+  font-family:  'Courier New', Courier, monospace;
+  color:  black;
+}
+.desc{
+  width: 100%;
+  height: 100%;
+  padding:  0rpx 20rpx 0rpx 20rpx;
+  font-size: 14px;
+  color:  #44474b;
+  word-break:keep-all;/* 不换行 */
+  font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

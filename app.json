@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/profile/profile",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#525252",
+    "navigationBarTitleText": "czj's blog",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#EE3B3B",
+    "backgroundColor": "#F8F8FF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tabs/home.png",
+        "selectedIconPath": "assets/tabs/home-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "个人中心",
+        "iconPath": "assets/tabs/profile.png",
+        "selectedIconPath": "assets/tabs/profile-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
