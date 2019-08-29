@@ -4,10 +4,36 @@
   <view class="title">
     <text>{{title}}</text>
   </view>
+  <view class="title2">
+    <view class="title3">
+      <view class="view"><image class="title4" src="{{src}}"></image>
+      </view>
+      <view class="viewcount"><text>{{viewCount}}</text>
+      </view>
+      <view class="zf"><image class="title5" src="/images/icon/zf1.png"></image>
+      </view>
+    </view>
+    
+  </view>
   <view class="desc">
     <!-- 这一块是富文本 显示的内容区 -->
     <wemark md="{{md}}" link highlight="true" type="wemark"></wemark>
   </view>
-  
+  <view class="tool">
+    <view class="tool-item"  data-post-id="{{id}}">
+        <image catchtap='handleLike' wx:if="{{!isLike}}" src="/images/icon/dianzhang1.png"></image>
+        <image catchtap='handleLike' wx:if="{{isLike}}" src="/images/icon/dianzhang2.png"></image>
+        <text></text>
+    </view>
+    <view class="tool-item comment" catchtap='onCommentTap' data-post-id="{{id}}">
+        <image src="/images/icon/pinglun1.png"></image>
+        <text></text>
+    </view>
+    <view class="tool-item"  id="{{id}}" data-post-id="{{id}}">
+        <image catchtap='onCollectionTap' wx:if="{{!collected}}" src="/images/icon/shouchang2.png"></image>
+        <image catchtap='onCollectionTap' wx:if="{{collected}}"  src="/images/icon/shouchang4.png"></image>
+        <text></text>
+    </view>
+  </view>
 </view>
 

@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/profile/profile",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/mycollect/mycollect"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,7 +11,6 @@
     "navigationBarTitleText": "czj's blog",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
-
   },
   "tabBar": {
     "color": "#000000",

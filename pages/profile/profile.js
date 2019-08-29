@@ -1,8 +1,8 @@
 
 //logs.js
 //获取应用实例
-const app = getApp()
-
+//const app = getApp()
+var app = getApp();
 Page({
   data: {
     motto: '按钮',
@@ -10,13 +10,14 @@ Page({
     imagesrc: '/images/0.png',
     textattr: '获取头像昵称',
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    openid: ""
   },
   //在小程序界面那里点击登录，调用此方法
   getMyInfo: function (e) {
     var that = this;
     //使用
-    console.log(e)
+    //console.log(e)
     this.getUserInfo()
     //第一次打开微信小程序，授权录，查看是否授权
     wx.getSetting({
@@ -44,7 +45,10 @@ Page({
                         if (data.data.status == 1) {
                           var userInfo_ = data.data.userInfo;
                           var that = this;
-                          console.log(userInfo_)
+                          //console.log(userInfo_)
+                          var openid = data.data.userInfo.openId
+                          wx.setStorageSync("openid", openid)
+                          
                         } else {
                           console.log('解密失败')
                         }
@@ -76,6 +80,21 @@ Page({
   onLoad: function () {
     this.getUserInfo()
   },
+  onShow:function(){
+    var openid1 = wx.getStorageSync("openid")
+    console.log(openid1)//这有bug
+    this.setData({
+      openid: openid1
+    })
+  },
+  myCollect: function (event){
+    console.log(event.currentTarget.id)
+    wx.navigateTo({
+      url: '../mycollect/mycollect?id=' + event.currentTarget.id,
+      
+    })
+    
+  },
   getUserInfo:function(){
     var that = this
     //判断是否授权
@@ -91,8 +110,8 @@ Page({
     //获取用户信息
     wx.getUserInfo({
       success: (res) =>{
-        console.log(res)
-        this.setData({
+        //console.log(res)
+        that.setData({
           imagesrc: res.userInfo.avatarUrl,
           textattr: res.userInfo.nickName
         })

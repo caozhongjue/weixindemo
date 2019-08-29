@@ -1,6 +1,6 @@
 /*整个大容器*/
 .container {
-  padding: 0 10rpx 0 10rpx;
+  padding: 10rpx 10rpx 0 10rpx;
   width: 100%;
   display: flex;
   flex-direction: column;/*垂直布局*/
@@ -51,7 +51,8 @@
   display: -webkit-box ;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  
+  /*letter-spacing: 2px;  字间距*/
+  /*white-space:nowrap; 强制在同一行内显示所有文本,直到文本结束或者遭遇 br 对象。不换行 */
 }
 .itemcount{
   font-size: 12px;

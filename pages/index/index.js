@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js')
 var app = getApp();
 Page({
+  
   data: {
     items: [],
     isFromSearch: true,   // 用于判断searchSongList数组是不是空数组，默认true，空的数组  
@@ -15,13 +16,14 @@ Page({
   onLoad: function () {
     this.indexData();//
     var self = this;
+    //console.log(wx.getStorageSync("openid"))
     wx.getSystemInfo({
       success: function (res) {
         let scrollH = res.windowHeight;
         self.setData({
           scrollH: scrollH
         });
-        console.log(scrollH)
+        //console.log(scrollH)
       }
     });
   },
@@ -33,13 +35,14 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-       // console.log(res)
+       //console.log(res)
         that.setData({
           items: res.data.questions,
           searchPageNum: 1,   //第一次加载，设置1 
           isFromSearch: false,  //第一次加载，设置true  
           searchLoading: true,  //把"上拉加载"的变量设为true，显示  
           searchLoadingComplete: false //把“没有数据”设为false，隐藏
+          
         })
       }
     })
@@ -96,10 +99,17 @@ Page({
   },
   bindTap: function (event) {
     wx.navigateTo({
-      url: '../detail/detail?id=' + event.currentTarget.id  
+      url: '../detail/detail?id=' + event.currentTarget.id,
+      // success: function (e) {
+      //   var page = getCurrentPages().pop();
+      //   if (page == undefined || page == null) return;
+      //   page.onLoad();
+      // }
+      
     })
-  }, 
-  onShow: function () {
     
+  },
+  onShow: function () {
+    //this.indexData();
   }
 })

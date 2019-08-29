@@ -15,9 +15,8 @@
           </view>
         </block>
     </view>
-        <view class="loading" hidden="{{!searchLoading}}">上拉加载更多...</view>  
-        <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部...</view>
    
   </scroll-view>
 </view>
+
 

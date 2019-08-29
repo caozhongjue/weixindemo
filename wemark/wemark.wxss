@@ -32,6 +32,8 @@
 .wemark_block_p{
 	margin-top:1em;
 	margin-bottom:1em;
+  display: flex;
+  flex-direction: column
 }
 .wemark_block_video{
 	margin-top:1em;
@@ -139,7 +141,10 @@
 	word-wrap:break-word;
 }
 .wemark_inline_text{
-	word-wrap:break-word;
+  /*word-wrap:break-word;*/
+  word-break:break-all;
+  width: 100%;
+  
 }
 .wemark_inline_link{
 	display: inline;

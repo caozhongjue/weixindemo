@@ -8,9 +8,63 @@
   width: 100%;
 }
 .title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
   font-family:  'Courier New', Courier, monospace;
   color:  black;
+}
+.title2{
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+  margin-top: 10rpx;
+   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.view{
+  width: 50rpx;
+  height: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*垂直居中效果*/
+  justify-content: center;
+}
+.title3{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 60%;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.viewcount{
+  font-size: 11px;
+  font-family:  'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:  rgb(19, 18, 18);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.zf{
+  width: 60rpx;
+  height: 40rpx;
+  display: flex;
+  margin-left: 100rpx;
+  flex-direction: column;
+   align-items: center; /*垂直居中效果*/
+  justify-content: center;
+}
+.title4{
+  width: 30rpx;
+  height: 30rpx;
+}
+.title5{
+  width: 30rpx;
+  height: 30rpx;
 }
 .desc{
   width: 100%;
@@ -20,4 +74,30 @@
   color:  #44474b;
   word-break:keep-all;/* 不换行 */
   font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.tool{
+  height: 64rpx;
+  text-align: center;
+  line-height: 64rpx;
+  margin: 20rpx 0rpx 20rpx 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rpx 110rpx;
+}
+.tool-item{
+  display: inline-block;
+  vertical-align: top;
+  
+}
+.tool-item image{
+  height: 50rpx;
+  width: 50rpx;
+  vertical-align: -3px;
+  margin-right: 10rpx;
+}
+.comment image{
+  transform: scale(.85);
 }
