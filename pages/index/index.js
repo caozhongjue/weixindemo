@@ -30,7 +30,7 @@ Page({
   indexData:function(){
     var that = this;
     wx.request({
-      url: 'https://www.caozhongjue.top/main',
+      url: app.globalData.url+'main',
       header: {
         'content-type': 'application/json'
       },
@@ -47,8 +47,8 @@ Page({
       }
     })
   },
-  //下拉刷新
-  onPullDownRefresh: function () {
+  //滚动到顶部事件
+  topLoad: function () {
     var that = this;
     //console.log("aaaaaa")
     wx.showNavigationBarLoading() //在标题栏中显示加载

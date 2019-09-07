@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="container-comment" wx-if="{{!hasComment}}">
+    暂无评论
+  </view>
+</view>

@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container" >
   <scroll-view scroll-y="true" style="height:{{scrollH}}px; background:  #DCDCDC"  bindscrolltolower="searchScrollLower">
-    <view >
+    <view class="container-row" wx-if="{{hasCollect}}">
         <block wx:for="{{items}}" wx:for-item="item"   >
           <view class="row" id="{{item.id}}" bindtap="bindTap">
             <image class="log-img" src="{{item.user.avatarUrl}}"></image>
@@ -15,7 +15,9 @@
           </view>
         </block>
     </view>
-   
+    <view class="container-row-two" wx-if="{{!hasCollect}}">
+      <text>空空如也，去逛逛再来吧</text>
+    </view>
   </scroll-view>
 </view>
 

@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container" >
-  <scroll-view scroll-y="true" style="height:{{scrollH}}px; background:  #DCDCDC"  bindscrolltolower="searchScrollLower">
+  <scroll-view scroll-y="true" class="scrollview" style="height:{{scrollH}}px;"  bindscrolltolower="searchScrollLower" bindscrolltoupper="topLoad">
     <view >
         <block wx:for="{{items}}" wx:for-item="item"   >
           <view class="row" id="{{item.id}}" bindtap="bindTap">
@@ -17,7 +17,8 @@
     </view>
         <view class="loading" hidden="{{!searchLoading}}">上拉加载更多...</view>  
         <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部...</view>
-   
+  
   </scroll-view>
+  
 </view>
 

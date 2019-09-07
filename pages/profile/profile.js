@@ -11,7 +11,6 @@ Page({
     textattr: '获取头像昵称',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    openid: ""
   },
   //在小程序界面那里点击登录，调用此方法
   getMyInfo: function (e) {
@@ -22,36 +21,33 @@ Page({
     //第一次打开微信小程序，授权录，查看是否授权
     wx.getSetting({
       success: res => {
-        // 用户点击授权
+        // 用户点击登录
         if (res.authSetting['scope.userInfo']) {
           //调用登录方法获取code
           wx.login({
             success: function (res) {
               var code = res.code;//登录凭证code
+              //console.log(code)
               if (code) {
-                //2、调用获取用户信息方法
+                //2、弹框后，点允许，调用获取用户信息方法
                 wx.getUserInfo({
                   success: function (res) {
                     //3、调用我的服务器api，向数据库保存数据
                     wx.request({
-                      url: 'https://www.caozhongjue.top/login',//自己的服务接口地址
+                      url: app.globalData.url+'login',//自己的服务接口地址
                       method: 'post',
                       header: {
                         'content-type': 'application/x-www-form-urlencoded'
                       },
                       data: { encryptedData: res.encryptedData, iv: res.iv, code: code },
                       success: function (data) {
-                        //4.解密成功后 获取自己服务器返回的结果
-                        if (data.data.status == 1) {
-                          var userInfo_ = data.data.userInfo;
-                          var that = this;
-                          //console.log(userInfo_)
-                          var openid = data.data.userInfo.openId
-                          wx.setStorageSync("openid", openid)
-                          
-                        } else {
-                          console.log('解密失败')
-                        }
+                        console.log(data)
+                        var token = JSON.stringify(data.data.token)
+                        console.log(token)
+                        wx.setStorageSync("token", token)
+                        var wxuser = wx.getStorageSync("token")
+                        
+                      
                       },
                       fail: function () {
                         console.log('系统错误')
@@ -88,10 +84,10 @@ Page({
     })
   },
   myCollect: function (event){
-    console.log(event.currentTarget.id)
+    var token = wx.getStorageSync("token")
+    console.log(token);
     wx.navigateTo({
-      url: '../mycollect/mycollect?id=' + event.currentTarget.id,
-      
+      url: '../mycollect/mycollect?token=' + token
     })
     
   },
@@ -105,15 +101,15 @@ Page({
             hasUserInfo: true
           })
         }
-      }
-    }),
-    //获取用户信息
-    wx.getUserInfo({
-      success: (res) =>{
-        //console.log(res)
-        that.setData({
-          imagesrc: res.userInfo.avatarUrl,
-          textattr: res.userInfo.nickName
+        //获取用户信息
+        wx.getUserInfo({
+          success: (res) => {
+            //console.log(res)
+            that.setData({
+              imagesrc: res.userInfo.avatarUrl,
+              textattr: res.userInfo.nickName
+            })
+          }
         })
       }
     })

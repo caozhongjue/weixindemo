@@ -9,6 +9,7 @@ App({
     // 登录
     wx.login({
       success: res => {
+        //console.log(res.code)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         // if(res.code){
         //   wx.request({
@@ -43,6 +44,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    openId: null
+    openId: null,
+    url: "http://localhost:8080/"
   }
 })

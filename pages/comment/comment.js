@@ -1,42 +1,18 @@
-// pages/mycollect/mycollect.js
-
-var app = getApp();
+// pages/comment.js
 Page({
-  
 
   /**
    * 页面的初始数据
    */
   data: {
-    items: [],
-    hasCollect: false
+    hasComment: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var token = options.token
-    var that = this
-      wx.request({
-        url: app.globalData.url+'selectMyCollectByOpenid',
-        method: 'POST',
-        header: {
-          'Authorization': JSON.parse(token),
-          'content-type': "application/x-www-form-urlencoded",
-        },
-        success: function (res) {
-          if(res.data.num===0){
-            hasCollect: false
-          }else{
-            console.log(res)
-            that.setData({
-              items: res.data.questions,
-              hasCollect: true
-            })
-          }
-        }
-      })
+    console.log(options.id)
   },
 
   /**

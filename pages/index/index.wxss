@@ -1,3 +1,4 @@
+
 /*整个大容器*/
 .container {
   padding: 0 10rpx 0 10rpx;
@@ -7,6 +8,10 @@
   align-items: center; /*垂直居中效果*/
   justify-content: space-around;/*view水平居中*/
   background:  #DCDCDC
+}
+.scrollview {
+  background:  #DCDCDC;
+  width: 100%;
 }
 /*一行*/
 .row{

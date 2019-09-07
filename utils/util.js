@@ -1,3 +1,4 @@
+var app = getApp();
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -21,7 +22,7 @@ module.exports = {
 
 function getSearchMusic( pageindex, callbackcount, callback) {
      wx.request({
-       url:  'https://www.caozhongjue.top/main',
+       url: app.globalData.url+'main',
       data: {
 
              page: pageindex,
